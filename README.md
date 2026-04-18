@@ -45,5 +45,5 @@ I'm always open to discussing web development, new opportunities, or potential c
 
 ---
 <p align="center">
-  <i>Designed and developed with 💡 and ☕ by Munawardy (DY) © 2026</i>
+  <i>Designed and developed by Munawardy (DY) © 2026</i>
 </p>
