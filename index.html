@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Munawardy (DY) — Web Developer</title>
+  <meta name="description" content="Personal portfolio of Munawardy (DY), a front-end web developer from Indonesia. Building clean, functional, and modern web experiences." />
+  <meta property="og:title" content="Munawardy (DY) — Web Developer" />
+  <meta property="og:description" content="Building clean, functional, and modern web experiences. Based in Indonesia, open to opportunities." />
+  <meta property="og:image" content="foto.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Munawardy (DY) — Web Developer" />
+  <meta name="twitter:description" content="Building clean, functional, and modern web experiences." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%230a0a0a'/><text y='.85em' font-size='55' font-family='monospace' font-weight='bold' fill='%23cdea12' x='8'>DY</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</head>
+<body>
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-content">
+      <h1 class="splash-name">MUNAWARDY</h1>
+      <div class="splash-link-wrapper">
+        <span class="splash-link">www.Munawardy.com</span><span class="splash-cursor"></span>
+      </div>
+      <div class="splash-socials">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+  <div id="scroll-progress"></div>
+  <nav class="navbar">
+    <span class="logo">dy.dev</span>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links">
+      <a href="#about" class="nav-pill">About</a>
+      <a href="#experience" class="nav-pill">Experience</a>
+      <a href="#projects" class="nav-pill">Projects</a>
+      <a href="#contact" class="nav-pill">Contact</a>
+    </div>
+  </nav>
+
+  <section id="about" class="section section-hero">
+    <div class="about-grid">
+
+      <div class="about-photo-wrap">
+        <img src="foto.png" alt="Munawardy DY" class="about-photo-img" />
+        <div class="about-socials">
+          <a href="https://www.instagram.com/_nrrdyy" target="_blank" rel="noopener" aria-label="Instagram" class="social" data-name="@_nrrdyy"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/munawardy-munawardy-1992b52ba/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social" data-name="Munawardy"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Queen-hash" target="_blank" rel="noopener" aria-label="GitHub" class="social" data-name="Queen-hash"><i class="fab fa-github"></i></a>
+          <a href="#contact" rel="noopener" aria-label="Contact" class="social" data-name="Contact"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="about-left">
+        <p class="about-hello">
+          Hey👋, I'm a <span id="typing-text"></span><span class="cursor">|</span>
+        </p>
+        <h1 class="about-name">Munawardy <span class="accent">(DY)</span></h1>
+        <p class="about-desc">
+          A front-end web developer from Indonesia with a passion for crafting clean,
+          functional, and modern digital experiences. I focus on turning ideas into
+          interactive, responsive interfaces — paying close attention to detail,
+          performance, and user experience. Always curious, always learning, and always
+          open to new challenges, collaborations, and exciting opportunities in the
+          world of web development.
+        </p>
+        <div class="about-btn-group">
+          <a href="cv.pdf" download class="hero-btn">Download CV</a>
+          <a href="#projects" class="hero-btn-outline">View Projects</a>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-top">
+              <i class="fas fa-code stat-icon"></i>
+              <i class="fas fa-arrow-up-right-from-square stat-arrow"></i>
+            </div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Total Projects</div>
+            <div class="stat-sub">Innovative web solutions crafted</div>
+          </div>
+          <div class="stat-card stat-card-cert" id="cert-stat-card">
+            <div class="stat-top">
+              <i class="fas fa-certificate stat-icon"></i>
+              <i class="fas fa-arrow-up-right-from-square stat-arrow"></i>
+            </div>
+            <div class="stat-number">0</div>
+            <div class="stat-label">Certificates</div>
+            <div class="stat-sub">Click to view certificates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top">
+              <i class="fas fa-globe stat-icon"></i>
+            </div>
+            <div class="stat-number">1</div>
+            <div class="stat-label">Years Learning</div>
+            <div class="stat-sub">Continuous learning journey</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="skills-section">
+      <p class="skills-title">Stack &amp; Skills</p>
+      <div class="skill-icon-grid">
+        <div class="skill-icon-card" data-skill="html">
+          <i class="devicon-html5-plain colored"></i>
+          <span>HTML</span>
+        </div>
+        <div class="skill-icon-card" data-skill="css">
+          <i class="devicon-css3-plain colored"></i>
+          <span>CSS</span>
+        </div>
+        <div class="skill-icon-card" data-skill="js">
+          <i class="devicon-javascript-plain colored"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-icon-card" data-skill="responsive">
+          <i class="fas fa-mobile-alt icon-responsive"></i>
+          <span>Responsive</span>
+        </div>
+        <div class="skill-icon-card" data-skill="git">
+          <i class="devicon-git-plain colored"></i>
+          <span>Git</span>
+        </div>
+        <div class="skill-icon-card" data-skill="vscode">
+          <i class="devicon-vscode-plain colored"></i>
+          <span>VSCode</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="cert-modal" class="cert-modal hidden">
+      <div class="cert-modal-box">
+        <div class="cert-modal-header">
+          <div class="cert-modal-title">
+            <i class="fas fa-certificate"></i>
+            <span>Certificates</span>
+          </div>
+          <button id="cert-modal-close">&times;</button>
+        </div>
+        <div class="cert-modal-body">
+          <div class="cert-empty">
+            <i class="fas fa-certificate"></i>
+            <p>No certificates yet.</p>
+            <p class="cert-empty-sub">Certificates will be displayed here once available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="skill-modal" class="skill-modal hidden">
+      <div class="skill-modal-box">
+        <div class="skill-modal-header">
+          <span id="modal-title">HTML</span>
+          <button id="modal-close">&times;</button>
+        </div>
+        <pre id="modal-code"></pre>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="experience" class="section">
+    <p class="section-label">// 02 — experience</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <p class="timeline-year">2025 — Present</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">Self-taught Front-end Developer</h3>
+          <p class="timeline-sub">Independent</p>
+          <p class="timeline-desc">→Learning and building web projects using HTML, CSS, and JavaScript. Focused on front-end development, clean UI design, and creating responsive interfaces from scratch.</p>
+          <p class="timeline-desc">→ Building responsive web projects from scratch using HTML5, CSS3, and modern JavaScript (ES6+).</p>
+          <p class="timeline-desc">→ Implementing clean UI/UX principles to deliver user-friendly and mobile-first interfaces.</p>
+          <p class="timeline-desc">→ Utilizing Git for version control and maintaining structured, scalable codebases.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <p class="timeline-year">2025 – Present</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">Independent Web Development Study (Self-Directed) Remote / Self-Paced</h3>
+          <p class="timeline-sub">Remote &amp; Self-Paced</p>
+          <p class="timeline-desc">→ Mastering core web technologies through official documentation and hands-on project execution.</p>
+          <p class="timeline-desc">→ Focused on complex problem-solving, debugging, and performance optimization without relying on formal certifications.</p>
+          <p class="timeline-desc">→ Continuously updating skills to align with current industry trends and best practices.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <p class="timeline-year">2024 – Present</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">Education</h3>
+          <p class="timeline-sub">Bachelor of Computer Science (Informatics Engineering)
+            University Indra Prasta PGRI Jakarta                      
+          </p>
+          <p class="timeline-desc"> → Deepening expertise in algorithms, data structures, software engineering, and database management.</p>
+            <p class="timeline-desc"> → Bridging academic theory with practical modern web development implementations.</p>
+            <p class="timeline-desc"> → Active Student Status: Applying technical coursework to real-world coding challenges and final year projects.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <p class="section-label">// 03 — projects</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <p class="project-num">01</p>
+        <p class="project-title">Portfolio Website</p>
+        <p class="project-desc">
+          The personal portfolio website you're looking at right now.
+          Built from scratch using HTML, CSS, and JavaScript — no frameworks.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JS</span>
+        </div>
+      </div>
+
+      <a href="https://queen-hash.github.io/Finly-Budget-Planner/" target="_blank" rel="noopener" aria-label="Finly — Smart Budget Planner" class="project-card project-card-preview-wrap">
+        <p class="project-num">02</p>
+        <p class="project-title">Finly — Smart Budget Planner</p>
+        <p class="project-desc">
+          A simple, user-friendly budget planner built with HTML, CSS, and JavaScript.
+          Helps users track expenses and manage their finances effectively.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JS</span>
+        </div>
+        <div class="project-preview-glass">
+          <img src="Review.png" alt="Preview project" class="preview-glass-img" />
+          <p class="preview-glass-label">PROJECT PREVIEW</p>
+          <p class="preview-glass-title">Finly — Smart Budget Planner</p>
+          <p class="preview-glass-cta">
+            <i class="fas fa-arrow-up-right-from-square"></i> View demo
+          </p>
+        </div>
+      </a>
+
+      <div class="project-card coming-soon">
+        <span class="cs-badge">Coming soon</span>
+        <p class="project-title">Project 3</p>
+        <p class="project-desc">Work in progress. Coming soon.</p>
+        <div class="project-tags">
+          <span class="project-tag">TBD</span>
+        </div>
+      </div>
+
+      <div class="project-card coming-soon">
+        <span class="cs-badge">Coming soon</span>
+        <p class="project-title">Project 4</p>
+        <p class="project-desc">Work in progress. Coming soon.</p>
+        <div class="project-tags">
+          <span class="project-tag">TBD</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <p class="section-label">// 04 — contact</p>
+
+    <div class="contact-grid">
+
+      <div class="contact-left">
+        <h2 class="contact-heading">Let's connect.</h2>
+        <p class="contact-sub">
+          Open to collaborations, freelance projects, or just a chat about web development.
+        </p>
+
+        <div class="contact-cards">
+          <a href="https://www.instagram.com/_nrrdyy" target="_blank" rel="noopener" aria-label="Instagram" class="contact-card">
+            <div class="contact-card-icon"><i class="fab fa-instagram"></i></div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">Instagram</span>
+              <span class="contact-card-value">@_nrrdyy</span>
+            </div>
+            <div class="contact-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/munawardy-munawardy-1992b52ba/" target="_blank" rel="noopener" aria-label="LinkedIn" class="contact-card">
+            <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">LinkedIn</span>
+              <span class="contact-card-value">Munawardy</span>
+            </div>
+            <div class="contact-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <a href="https://github.com/Queen-hash" target="_blank" rel="noopener" aria-label="GitHub" class="contact-card">
+            <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">GitHub</span>
+              <span class="contact-card-value">EL Queen</span>
+            </div>
+            <div class="contact-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <a href="mailto:wincakardi.040105@gmail.com" rel="noopener" aria-label="Email" class="contact-card">
+            <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">Email</span>
+              <span class="contact-card-value">wincakardi.040105@gmail.com</span>
+            </div>
+            <div class="contact-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form class="contact-form-wrap" action="https://formspree.io/f/mgoprrrn" method="POST">
+          <input type="text" name="name" class="contact-input" placeholder="Name" required/>
+          <input type="email" name="email" class="contact-input" placeholder="Email" required/>
+          <textarea name="message" class="contact-input contact-textarea" placeholder="Message" required></textarea>
+          <input type="hidden" name="_next" value="https://queen-hash.github.io/Portfolio/#contact">
+          <button type="submit" class="contact-submit">Submit</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p><span class="dot"></span>Available for work</p>
+    <p>Munawardy (DY) &copy; <span id="current-year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
