@@ -28,159 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 4000); 
 });
 
-const skillExamples = {
-  html: {
-    title: 'HTML — Struktur Dasar',
-    code: `<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Halaman Saya</title>
-</head>
-<body>
-  <h1>Halo, saya DY!</h1>
-  <p>Ini paragraf pertama saya.</p>
-  <a href="#">Klik di sini</a>
-</body>
-</html>`
-  },
-  css: {
-    title: 'CSS — Styling Elemen',
-    code: `
-h1 {
-  color: #c8f542;
-  font-size: 3rem;
-  font-weight: 800;
-}
-
-.btn {
-  background: #c8f542;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  transition: transform 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}`
-  },
-  js: {
-    title: 'JavaScript — Interaksi',
-    code: `// Tampilkan pesan saat tombol diklik
-const btn = document.querySelector('.btn');
-
-btn.addEventListener('click', () => {
-  alert('Halo dari JavaScript!');
-});
-
-// Ubah teks secara dinamis
-const heading = document.querySelector('h1');
-heading.textContent = 'Teks berubah!';`
-  },
-  responsive: {
-    title: 'Responsive Design — Media Query',
-    code: `/* Default: tampilan desktop */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-/* Tablet & HP: satu kolom */
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-}`
-  },
-  git: {
-    title: 'Git — Perintah Dasar',
-    code: `# Inisialisasi repo baru
-git init
-
-# Tambah semua file
-git add .
-
-# Simpan perubahan
-git commit -m "first commit"
-
-# Hubungkan ke GitHub
-git remote add origin https://github.com/username/repo.git
-
-# Upload ke GitHub
-git push -u origin main`
-  },
-  vscode: {
-    title: 'VSCode — Shortcut Penting',
-    code: `Ctrl + S          → Simpan file
-Ctrl + /          → Comment/uncomment baris
-Alt + Shift + F   → Format kode otomatis
-Ctrl + \`          → Buka terminal
-Ctrl + P          → Cari file cepat
-Ctrl + Shift + P  → Command palette
-Alt + ↑ / ↓       → Pindah baris ke atas/bawah
-Ctrl + D          → Pilih kata yang sama berikutnya`
-  }
-};
-
-const modal      = document.getElementById('skill-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalCode  = document.getElementById('modal-code');
-const modalClose = document.getElementById('modal-close');
-
-let hoverTimeout;
-
-document.querySelectorAll('.skill-icon-card').forEach(tag => {
-  tag.addEventListener('mouseenter', () => {
-    clearTimeout(hoverTimeout);
-    const key  = tag.getAttribute('data-skill');
-    const data = skillExamples[key];
-    if (!data) return;
-    modalTitle.textContent = data.title;
-    modalCode.textContent  = data.code;
-    modal.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        modal.classList.add('visible');
-      });
-    });
-  });
-
-  tag.addEventListener('mouseleave', () => {
-    hoverTimeout = setTimeout(() => {
-      closeModal();
-    }, 200);
-  });
-});
-
-const modalBox = modal.querySelector('.skill-modal-box');
-
-modalBox.addEventListener('mouseenter', () => {
-  clearTimeout(hoverTimeout);
-});
-
-modalBox.addEventListener('mouseleave', () => {
-  hoverTimeout = setTimeout(() => {
-    closeModal();
-  }, 150);
-});
-
-function closeModal() {
-  modal.classList.remove('visible');
-  setTimeout(() => modal.classList.add('hidden'), 300);
-}
-
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) closeModal();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -435,4 +282,169 @@ navItemsMobile.forEach(item => {
 const yearElement = document.getElementById('current-year');
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
+}
+
+
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('contact-submit');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    const data = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+
+        contactForm.classList.add('fade-out');
+        
+
+        setTimeout(() => {
+          formStatus.classList.remove('hidden');
+          formStatus.classList.add('visible');
+        }, 400); 
+
+        contactForm.reset();
+
+
+        setTimeout(() => {
+
+          formStatus.classList.remove('visible');
+          
+          setTimeout(() => {
+            formStatus.classList.add('hidden');
+            
+
+            contactForm.classList.remove('fade-out');
+            
+
+            submitBtn.textContent = originalText;
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          }, 500);
+        }, 5000);
+
+      }
+    } catch (error) {
+
+      alert('Oops! Cek koneksi internet lu dan coba lagi.');
+      submitBtn.textContent = originalText;
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+const svgEl = document.querySelector('.strings-svg');
+const physicsItems = document.querySelectorAll('.physics-item');
+const photoWrap = document.querySelector('.about-photo-wrap');
+
+if (svgEl && physicsItems.length > 0 && photoWrap) {
+  physicsItems.forEach(item => {
+
+    const anchorXPct = parseFloat(item.getAttribute('data-anchor-x'));
+    const anchorYPct = parseFloat(item.getAttribute('data-anchor-y'));
+    const ropeLength = parseFloat(item.getAttribute('data-length'));
+
+    const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    svgEl.appendChild(pathEl);
+
+    let isDragging = false;
+    let currentX = 0;
+    let currentY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
+    
+    const spring = 0.04;   
+    const friction = 0.90; 
+
+
+    function getAnchorPos() {
+      return {
+        x: (anchorXPct / 100) * photoWrap.offsetWidth,
+        y: (anchorYPct / 100) * photoWrap.offsetHeight
+      };
+    }
+
+    function initPos() {
+      const anchor = getAnchorPos();
+      currentX = anchor.x;
+      currentY = anchor.y + ropeLength;
+    }
+    setTimeout(initPos, 100);
+
+
+    item.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentX += e.movementX;
+      currentY += e.movementY;
+    });
+
+    let startTouch = { x: 0, y: 0 };
+    item.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startTouch.x = e.touches[0].clientX;
+      startTouch.y = e.touches[0].clientY;
+      e.preventDefault(); 
+    }, { passive: false });
+    
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentX += (e.touches[0].clientX - startTouch.x);
+      currentY += (e.touches[0].clientY - startTouch.y);
+      startTouch.x = e.touches[0].clientX;
+      startTouch.y = e.touches[0].clientY;
+    });
+
+
+    function animatePhysics() {
+      const anchor = getAnchorPos();
+      const targetX = anchor.x;
+      const targetY = anchor.y + ropeLength;
+
+      if (!isDragging) {
+        velocityX += (targetX - currentX) * spring;
+        velocityY += (targetY - currentY) * spring;
+        
+        velocityX *= friction;
+        velocityY *= friction;
+        
+        currentX += velocityX;
+        currentY += velocityY;
+      }
+      
+      item.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      
+      const midX = (anchor.x + currentX) / 2;
+      const midY = (anchor.y + currentY) / 2;
+      
+      const controlX = midX - velocityX * 2.5;
+      const controlY = midY - velocityY * 2.5 + 25; 
+      
+      pathEl.setAttribute('d', `M ${anchor.x} ${anchor.y} Q ${controlX} ${controlY} ${currentX} ${currentY}`);
+      
+      requestAnimationFrame(animatePhysics);
+    }
+    
+    animatePhysics();
+  });
 }
