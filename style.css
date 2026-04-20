@@ -1481,3 +1481,26 @@ body::after {
   z-index: 10000;
   box-shadow: 0 0 10px rgba(205, 234, 18, 0.5);
 }
+
+@media (max-width: 768px) {
+  .splash-name {
+    font-size: 1.7rem; 
+    letter-spacing: 0.1em;
+  }
+
+  .splash-link {
+    font-size: 12px; 
+  }
+
+  .splash-link-wrapper {
+    margin-bottom: 1.5rem; 
+  }
+
+  .splash-socials {
+    gap: 1.2rem; 
+  }
+
+  .splash-socials i {
+    font-size: 18px; 
+  }
+}
