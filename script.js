@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'none';
       });
       splash.remove(); 
-    }, 600); 
+    }, 800); 
   }, 4000); 
 });
 
@@ -119,8 +119,10 @@ const aboutPhotoEl = document.querySelector('.about-photo-img');
 
 window.addEventListener('scroll', () => {
   let current = '';
+  const scrollOffset = window.innerHeight * 0.3; // Trigger earlier for better feel
+  
   sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 100) {
+    if (window.scrollY >= section.offsetTop - scrollOffset) {
       current = section.getAttribute('id');
     }
   });
@@ -134,7 +136,7 @@ window.addEventListener('scroll', () => {
   }
   
   if (aboutPhotoEl) {
-    aboutPhotoEl.style.transform = `translateY(${winScroll * 0.15}px)`;
+    aboutPhotoEl.style.transform = `translateY(${winScroll * 0.12}px)`; // Slightly reduced for subtleness
   }
   
   navLinks.forEach(link => {
@@ -228,7 +230,7 @@ const words = ["Web Developer", "Front-end Developer"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-let typeSpeed = 150;
+let typeSpeed = 100;
 
 function type() {
   const currentWord = words[wordIndex];
@@ -295,7 +297,7 @@ if (contactForm) {
     
 
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
+    submitBtn.textContent = 'Mohon tunggu...';
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
@@ -343,7 +345,7 @@ if (contactForm) {
       }
     } catch (error) {
 
-      alert('Oops! Cek koneksi internet lu dan coba lagi.');
+      alert('Maaf, permintaan tidak dapat dikirim. Silakan periksa koneksi internet Anda dan coba lagi.');
       submitBtn.textContent = originalText;
       submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
@@ -356,7 +358,7 @@ const physicsItems = document.querySelectorAll('.physics-item');
 const photoWrap = document.querySelector('.about-photo-wrap');
 
 if (svgEl && physicsItems.length > 0 && photoWrap) {
-  physicsItems.forEach(item => {
+  physicsItems.forEach((item, index) => {
 
     const anchorXPct = parseFloat(item.getAttribute('data-anchor-x'));
     const anchorYPct = parseFloat(item.getAttribute('data-anchor-y'));
@@ -366,14 +368,20 @@ if (svgEl && physicsItems.length > 0 && photoWrap) {
     svgEl.appendChild(pathEl);
 
     let isDragging = false;
+    let isDropped = false; 
+
     let currentX = 0;
-    let currentY = 0;
+    let currentY = -150; 
     let velocityX = 0;
     let velocityY = 0;
+      
     
-    const spring = 0.04;   
-    const friction = 0.90; 
+    const spring = 0.02;   
+    const friction = 0.98; 
 
+    setTimeout(() => {
+      isDropped = true;
+    }, 2500 + (index * 200));
 
     function getAnchorPos() {
       return {
@@ -385,10 +393,9 @@ if (svgEl && physicsItems.length > 0 && photoWrap) {
     function initPos() {
       const anchor = getAnchorPos();
       currentX = anchor.x;
-      currentY = anchor.y + ropeLength;
+      currentY = -150; 
     }
-    setTimeout(initPos, 100);
-
+    setTimeout(initPos, 50);
 
     item.addEventListener('mousedown', () => isDragging = true);
     window.addEventListener('mouseup', () => isDragging = false);
@@ -405,7 +412,7 @@ if (svgEl && physicsItems.length > 0 && photoWrap) {
       startTouch.y = e.touches[0].clientY;
       e.preventDefault(); 
     }, { passive: false });
-    
+      
     window.addEventListener('touchend', () => isDragging = false);
     window.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
@@ -415,36 +422,36 @@ if (svgEl && physicsItems.length > 0 && photoWrap) {
       startTouch.y = e.touches[0].clientY;
     });
 
-
     function animatePhysics() {
       const anchor = getAnchorPos();
       const targetX = anchor.x;
-      const targetY = anchor.y + ropeLength;
+      
+      const targetY = isDropped ? anchor.y + ropeLength : -150;
 
       if (!isDragging) {
         velocityX += (targetX - currentX) * spring;
         velocityY += (targetY - currentY) * spring;
-        
+          
         velocityX *= friction;
         velocityY *= friction;
-        
+          
         currentX += velocityX;
         currentY += velocityY;
       }
-      
+        
       item.style.transform = `translate(${currentX}px, ${currentY}px)`;
-      
+        
       const midX = (anchor.x + currentX) / 2;
       const midY = (anchor.y + currentY) / 2;
-      
-      const controlX = midX - velocityX * 2.5;
+        
+      const controlX = midX - velocityX * 10;
       const controlY = midY - velocityY * 2.5 + 25; 
-      
+        
       pathEl.setAttribute('d', `M ${anchor.x} ${anchor.y} Q ${controlX} ${controlY} ${currentX} ${currentY}`);
-      
+        
       requestAnimationFrame(animatePhysics);
     }
-    
+      
     animatePhysics();
   });
 }
