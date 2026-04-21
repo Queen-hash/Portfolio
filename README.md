@@ -5,7 +5,7 @@ https://github.com/user-attachments/assets/03df6412-51b4-4560-8dbb-0fd10dcaf287
 <p align="center">
   A clean, modern, and interactive personal portfolio website built entirely from scratch to showcase my projects, skills, and journey as a web developer.
   <br />
-  <strong><a href="https://queen-hash.github.io/Portfolio/" target="_blank">View Live Demo</a></strong>
+  <strong><a href="https://queen-hash.github.io/Portfolio/" target="_blank">View Live</a></strong>
 </p>
 
 ## 🚀 Overview
