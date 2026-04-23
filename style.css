@@ -1239,6 +1239,17 @@ footer p {
 .project-card-preview-wrap:hover .project-preview-glass {
   opacity: 1;
   transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.project-card-dual-link {
+  cursor: pointer;
+}
+
+.project-card-dual-link.show-options .project-preview-glass {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
 }
 
 .preview-glass-img {
@@ -1273,6 +1284,19 @@ footer p {
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.preview-glass-cta:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.preview-glass-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
 }
 
 #typing-text {
