@@ -455,3 +455,23 @@ if (svgEl && physicsItems.length > 0 && photoWrap) {
     animatePhysics();
   });
 }
+
+document.querySelectorAll('.project-card-dual-link').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return;
+    
+    document.querySelectorAll('.project-card-dual-link').forEach(other => {
+      if (other !== this) other.classList.remove('show-options');
+    });
+
+    this.classList.toggle('show-options');
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.project-card-dual-link')) {
+    document.querySelectorAll('.project-card-dual-link').forEach(card => {
+      card.classList.remove('show-options');
+    });
+  }
+});
